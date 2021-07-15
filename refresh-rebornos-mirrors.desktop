@@ -1,0 +1,31 @@
+[Desktop Entry]
+
+# The version of the desktop entry specification to which this file complies
+Version=1.0
+
+# The type as listed above
+Type=Application
+
+# The name of the application
+Name=Refresh RebornOS Mirrors
+
+# A comment which can/will be used as a tooltip
+Comment=A shortcut to refresh RebornOS mirrors for RebornOS, using the rate-mirrors tool (https://github.com/westandskif/rate-mirrors)
+
+# The path to the folder in which the executable is run
+Path=
+
+# The executable of the application, possibly with arguments.
+Exec=pkexec /usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --allow-root --save=/etc/pacman.d/reborn-mirrorlist rebornos
+
+# The name of the icon that will be used to display this entry
+Icon=
+
+# Describes whether this application needs to be run in a terminal or not
+Terminal=true
+
+# Describes the categories in which this entry should be shown
+Categories=System;Utility;Accessibility;
+
+# A list of strings which may be used in addition to other metadata to describe this entry. This can be useful e.g. to facilitate searching through entries
+Keywords=Refresh;Rank;Mirrors;

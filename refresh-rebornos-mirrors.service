@@ -1,0 +1,12 @@
+
+[Unit]
+Description=Update RebornOS mirrors for RebornOS
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --allow-root --save=/etc/pacman.d/reborn-mirrorlist rebornos
+
+[Install]
+RequiredBy=multi-user.target
