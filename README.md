@@ -1,6 +1,6 @@
 # refresh-mirrors
 
-Just some convenient shortcuts for running the `rate-mirrors` tool (https://github.com/westandskif/rate-mirrors) for RebornOS. This is *NOT* a fork, but just a wrapper for shortcuts that call the tool. Two `.desktop` entries are created and two *Systemd* services are created as a part of the installation.
+Just some convenient shortcuts for running the `rate-mirrors` tool (https://github.com/westandskif/rate-mirrors) for RebornOS. This is *NOT* a fork, but just a wrapper for shortcuts that call the tool. A `.desktop` entry and a *Systemd* service are created as a part of the installation.
 
 > **Note**: The below instructions are intended to work only on **RebornOS**
 
@@ -20,28 +20,21 @@ Run `./build.sh` on a terminal. This will build the package from the `PKGBUILD`,
 yay -S rate-mirrors
 ```
 
-3. Install the package by running the below command on a terminal
+3. Install the package by running the below commands on a terminal (after removing the old `refresh-mirrors` application)
 
 ```bash
-sudo pacman -U refresh-mirrors*.pkg.tar.zst
+sudo pacman -R refresh-mirrors
+sudo pacman -U --noconfirm refresh-mirrors*.pkg.tar.zst
 ```
 
-### Desktop Entries
+### Desktop Entry
 
-4. Run "Refresh RebornOS Mirrors" from the launcher.
-
-5. Run "Refresh ArchLinux Mirrors" from the launcher.
+4. Run "Refresh RebornOS and ArchLinux Mirrors" from the launcher.
 
 ### Systemd Services
 
-6. Run the below command on the terminal:
+5. Run the below command on the terminal:
 
 ```bash
-sudo systemctl restart refresh-rebornos-mirrors
-```
-
-7. Run the below command on the terminal:
-
-```bash
-sudo systemctl restart refresh-archlinux-mirrors
+sudo systemctl restart refresh-mirrors-rebornos
 ```

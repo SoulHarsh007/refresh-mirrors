@@ -1,5 +1,5 @@
-pkgname='refresh-mirrors'
-pkgver=0.0.1
+pkgname='refresh-mirrors-rebornos'
+pkgver=0.0.2
 pkgrel=1
 pkgdesc='Just some convenient shortcuts for running the `rate-mirrors` tool (https://github.com/westandskif/rate-mirrors) for RebornOS. This is *NOT* a fork, but just a wrapper for shortcuts that call the tool.'
 arch=('x86_64')
@@ -9,8 +9,9 @@ groups=('rebornos')
 depends=('rate-mirrors'
          'polkit')
 provides=("${pkgname}")
-conflicts=("${pkgname}")
-replaces=()
+conflicts=("${pkgname}"
+           'refresh-mirrors')
+replaces=('refresh-mirrors')
 backup=()
 options=()
 install=
