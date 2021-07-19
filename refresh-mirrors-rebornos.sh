@@ -12,4 +12,4 @@ pkexec /usr/bin/rate-mirrors --protocol=https --allow-root --save=/etc/pacman.d/
 echo ""
 echo ""
 
-read -n 1 -s -r -t 10 -p "Press any key to continue..."; exit 0
+read -n 1 -s -r -t 10 -p "Press any key to exit..."; exit 0
