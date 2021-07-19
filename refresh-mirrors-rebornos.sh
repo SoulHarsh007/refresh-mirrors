@@ -11,3 +11,5 @@ echo ""
 pkexec /usr/bin/rate-mirrors --protocol=https --allow-root --save=/etc/pacman.d/mirrorlist arch
 echo ""
 echo ""
+
+read -n 1 -s -r -t 10 -p "Press any key to continue..."; exit 0
