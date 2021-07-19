@@ -5,7 +5,7 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/env sh /usr/bin/refresh-mirrors-rebornos.service
+ExecStart=/usr/bin/env sh /usr/bin/refresh-mirrors-rebornos.sh
 
 [Install]
 RequiredBy=multi-user.target
