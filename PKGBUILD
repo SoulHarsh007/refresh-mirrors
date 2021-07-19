@@ -28,8 +28,8 @@ check() {
 
 package() {
     cd ..
-    install -D -m 755 refresh-archlinux-mirrors.desktop "${pkgdir}/usr/share/applications/refresh-archlinux-mirrors.desktop"
-    install -D -m 755 refresh-rebornos-mirrors.desktop "${pkgdir}/usr/share/applications/refresh-rebornos-mirrors.desktop"
-    install -D -m 755 refresh-archlinux-mirrors.service "${pkgdir}/usr/lib/systemd/system/refresh-archlinux-mirrors.service"
-    install -D -m 755 refresh-rebornos-mirrors.service "${pkgdir}/usr/lib/systemd/system/refresh-rebornos-mirrors.service"
+    install -D -m 755 refresh-mirrors-rebornos.sh "${pkgdir}/usr/bin/refresh-mirrors-rebornos.sh"
+    install -D -m 755 refresh-mirrors-rebornos.svg  "${pkgdir}/usr/share/icons/hicolor/scalable/apps/refresh-mirrors-rebornos.svg"
+    install -D -m 755 refresh-mirrors-rebornos.desktop "${pkgdir}/usr/share/applications/refresh-mirrors-rebornos.desktop"
+    install -D -m 755 refresh-mirrors-rebornos.service "${pkgdir}/usr/lib/systemd/system/refresh-mirrors-rebornos.service"
 }

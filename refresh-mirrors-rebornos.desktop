@@ -7,19 +7,19 @@ Version=1.0
 Type=Application
 
 # The name of the application
-Name=Refresh ArchLinux Mirrors
+Name=Refresh RebornOS and ArchLinux mirrors for RebornOS
 
 # A comment which can/will be used as a tooltip
-Comment=A shortcut to refresh ArchLinux mirrors for RebornOS, using the rate-mirrors tool (https://github.com/westandskif/rate-mirrors)
+Comment=A shortcut to refresh RebornOS mirrors and ArchLinux mirrors for RebornOS, using the rate-mirrors tool (https://github.com/westandskif/rate-mirrors)
 
 # The path to the folder in which the executable is run
-Path=
+Path=/usr/bin/
 
 # The executable of the application, possibly with arguments.
-Exec=pkexec /usr/bin/rate-mirrors --protocol=https --allow-root --save=/etc/pacman.d/mirrorlist arch
+Exec=pkexec /usr/bin/refresh-mirrors-rebornos.sh
 
 # The name of the icon that will be used to display this entry
-Icon=
+Icon=/usr/share/icons/hicolor/scalable/apps/refresh-mirrors-rebornos.svg
 
 # Describes whether this application needs to be run in a terminal or not
 Terminal=true

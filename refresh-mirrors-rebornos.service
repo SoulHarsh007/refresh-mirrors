@@ -1,0 +1,11 @@
+[Unit]
+Description=Update RebornOS mirrors and ArchLinux mirrors for RebornOS
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env sh /usr/bin/refresh-mirrors-rebornos.service
+
+[Install]
+RequiredBy=multi-user.target
