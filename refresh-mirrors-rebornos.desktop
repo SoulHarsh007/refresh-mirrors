@@ -7,7 +7,7 @@ Version=1.0
 Type=Application
 
 # The name of the application
-Name=Refresh RebornOS and ArchLinux mirrors for RebornOS
+Name=Refresh Mirrors
 
 # A comment which can/will be used as a tooltip
 Comment=A shortcut to refresh RebornOS mirrors and ArchLinux mirrors for RebornOS, using the rate-mirrors tool (https://github.com/westandskif/rate-mirrors)
