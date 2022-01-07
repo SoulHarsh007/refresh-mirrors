@@ -8,4 +8,4 @@ Type=oneshot
 ExecStart=/usr/bin/env sh /usr/bin/refresh-mirrors-rebornos.sh
 
 [Install]
-RequiredBy=multi-user.target
+WantedBy=multi-user.target
