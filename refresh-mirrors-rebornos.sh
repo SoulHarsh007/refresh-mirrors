@@ -30,4 +30,4 @@ exit_if_needed "$?"
 echo ""
 echo ""
 
-wait_and_exit 10
+wait_and_exit 10 0
