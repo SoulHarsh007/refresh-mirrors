@@ -1,7 +1,7 @@
 [Unit]
 Description=Update RebornOS mirrors and ArchLinux mirrors for RebornOS
-Wants=systemd-networkd-wait-online.service
-After=systemd-networkd-wait-online.service
+Requires=network-online.target
+After=network-online.target
 
 [Service]
 Type=oneshot
