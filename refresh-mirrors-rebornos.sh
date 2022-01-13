@@ -19,10 +19,12 @@ MIRRORLIST_FILENAME="reborn-mirrorlist"
 TEMP_FILE="$TEMP_DIR/$MIRRORLIST_FILENAME"
 MIRRORLIST_FILE="$DESTINATION_DIR/$MIRRORLIST_FILENAME"
 
+echo ""
 set -o xtrace
 mkdir -p "$TEMP_DIR"
 rm -f "$TEMP_FILE"
 set +o xtrace
+echo ""
 
 echo "Ranking RebornOS Mirrors..."
 echo ""
@@ -51,10 +53,12 @@ MIRRORLIST_FILENAME="mirrorlist"
 TEMP_FILE="$TEMP_DIR/$MIRRORLIST_FILENAME"
 MIRRORLIST_FILE="$DESTINATION_DIR/$MIRRORLIST_FILENAME"
 
+echo ""
 set -o xtrace
 mkdir -p "$TEMP_DIR"
 rm -f "$TEMP_FILE"
 set +o xtrace
+echo ""
 
 echo "Ranking Arch Linux Mirrors..."
 echo ""
