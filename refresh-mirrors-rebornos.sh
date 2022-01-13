@@ -24,7 +24,7 @@ rm -f "$TEMP_FILE"
 
 echo "Ranking RebornOS Mirrors..."
 echo ""
-/usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --save="$TEMP_FILE" rebornos
+/usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --allow-root --save="$TEMP_FILE" rebornos
 echo ""
 echo ""
 
@@ -47,7 +47,7 @@ MIRRORLIST_FILE="$DESTINATION_DIR/$MIRRORLIST_FILENAME"
 
 echo "Ranking Arch Linux Mirrors..."
 echo ""
-/usr/bin/rate-mirrors --protocol=https --save="$TEMP_FILE" arch
+/usr/bin/rate-mirrors --protocol=https --allow-root --save="$TEMP_FILE" arch
 echo ""
 echo ""
 
