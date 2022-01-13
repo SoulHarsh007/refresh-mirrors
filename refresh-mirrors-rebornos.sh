@@ -19,8 +19,10 @@ MIRRORLIST_FILENAME="reborn-mirrorlist"
 TEMP_FILE="$TEMP_DIR/$MIRRORLIST_FILENAME"
 MIRRORLIST_FILE="$DESTINATION_DIR/$MIRRORLIST_FILENAME"
 
+set -o xtrace
 mkdir -p "$TEMP_DIR"
 rm -f "$TEMP_FILE"
+set +o xtrace
 
 echo "Ranking RebornOS Mirrors..."
 echo ""
@@ -30,8 +32,12 @@ echo ""
 
 REBORN_MIRROR_REFRESH_FAILED="$?"
 REBORN_MIRROR_REFRESH_LOG_FILE="$TEMP_FILE"
-if [ "$REBORN_MIRROR_REFRESH_FAILED" -eq 0 ]; then        
+if [ "$REBORN_MIRROR_REFRESH_FAILED" -eq 0 ]; then
+    echo ""  
+    set -o xtrace      
     pkexec cp -f "$TEMP_FILE" "$MIRRORLIST_FILE"
+    set +o xtrace
+    echo ""
 fi
 
 # ==========================
@@ -45,6 +51,11 @@ MIRRORLIST_FILENAME="mirrorlist"
 TEMP_FILE="$TEMP_DIR/$MIRRORLIST_FILENAME"
 MIRRORLIST_FILE="$DESTINATION_DIR/$MIRRORLIST_FILENAME"
 
+set -o xtrace
+mkdir -p "$TEMP_DIR"
+rm -f "$TEMP_FILE"
+set +o xtrace
+
 echo "Ranking Arch Linux Mirrors..."
 echo ""
 /usr/bin/rate-mirrors --protocol=https --allow-root --save="$TEMP_FILE" arch
@@ -54,7 +65,11 @@ echo ""
 ARCH_MIRROR_REFRESH_FAILED="$?"
 ARCH_MIRROR_REFRESH_LOG_FILE="$TEMP_FILE"
 if [ "$ARCH_MIRROR_REFRESH_FAILED" -eq 0 ]; then    
+    echo ""  
+    set -o xtrace      
     pkexec cp -f "$TEMP_FILE" "$MIRRORLIST_FILE"
+    set +o xtrace
+    echo ""
 fi
 
 # =========================
