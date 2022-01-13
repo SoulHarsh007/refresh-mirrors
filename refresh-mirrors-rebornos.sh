@@ -29,10 +29,10 @@ echo ""
 echo "Ranking RebornOS Mirrors..."
 echo ""
 /usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --allow-root --save="$TEMP_FILE" rebornos
+REBORN_MIRROR_REFRESH_FAILED="$?"
 echo ""
 echo ""
 
-REBORN_MIRROR_REFRESH_FAILED="$?"
 REBORN_MIRROR_REFRESH_LOG_FILE="$TEMP_FILE"
 if [ "$REBORN_MIRROR_REFRESH_FAILED" -eq 0 ]; then
     echo ""  
@@ -63,10 +63,10 @@ echo ""
 echo "Ranking Arch Linux Mirrors..."
 echo ""
 /usr/bin/rate-mirrors --protocol=https --allow-root --save="$TEMP_FILE" arch
+ARCH_MIRROR_REFRESH_FAILED="$?"
 echo ""
 echo ""
 
-ARCH_MIRROR_REFRESH_FAILED="$?"
 ARCH_MIRROR_REFRESH_LOG_FILE="$TEMP_FILE"
 if [ "$ARCH_MIRROR_REFRESH_FAILED" -eq 0 ]; then    
     echo ""  
