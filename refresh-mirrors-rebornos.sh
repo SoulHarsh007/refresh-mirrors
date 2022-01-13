@@ -8,26 +8,71 @@ wait_and_exit() {
     exit "$EXIT_CODE"
 }
 
-exit_if_needed() {
-    EXIT_CODE="$1"
+# ========================
+# Refresh RebornOS Mirrors
+# ========================
 
-    if [ "$EXIT_CODE" -ne 0 ]; then
-        wait_and_exit 20 "$EXIT_CODE"
-    fi
-}
+TEMP_DIR="/tmp/pacman.d"
+DESTINATION_DIR="/etc/pacman.d"
+MIRRORLIST_FILENAME="reborn-mirrorlist"
+
+TEMP_FILE="$TEMP_DIR/$MIRRORLIST_FILENAME"
+MIRRORLIST_FILE="$DESTINATION_DIR/$MIRRORLIST_FILENAME"
+
+mkdir -p "$TEMP_DIR"
+rm -f "$TEMP_FILE"
 
 echo "Ranking RebornOS Mirrors..."
 echo ""
-pkexec /usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --allow-root --save=/etc/pacman.d/reborn-mirrorlist rebornos
-exit_if_needed "$?"
+pkexec /usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --save="$TEMP_FILE" rebornos
 echo ""
 echo ""
 
-echo "Ranking ArchLinux Mirrors..."
+REBORN_MIRROR_REFRESH_FAILED="$?"
+REBORN_MIRROR_REFRESH_LOG_FILE="$TEMP_FILE"
+if [ "$REBORN_MIRROR_REFRESH_FAILED" -eq 0 ]; then        
+    pkexec cp -f "$TEMP_FILE" "$MIRRORLIST_FILE"
+fi
+
+# ==========================
+# Refresh Arch Linux Mirrors
+# ==========================
+
+TEMP_DIR="/tmp/pacman.d"
+DESTINATION_DIR="/etc/pacman.d"
+MIRRORLIST_FILENAME="mirrorlist"
+
+TEMP_FILE="$TEMP_DIR/$MIRRORLIST_FILENAME"
+MIRRORLIST_FILE="$DESTINATION_DIR/$MIRRORLIST_FILENAME"
+
+echo "Ranking Arch Linux Mirrors..."
 echo ""
-pkexec /usr/bin/rate-mirrors --protocol=https --allow-root --save=/etc/pacman.d/mirrorlist arch
-exit_if_needed "$?"
+pkexec /usr/bin/rate-mirrors --protocol=https --save="$TEMP_FILE" arch
 echo ""
 echo ""
 
-wait_and_exit 10 0
+ARCH_MIRROR_REFRESH_FAILED="$?"
+ARCH_MIRROR_REFRESH_LOG_FILE="$TEMP_FILE"
+if [ "$ARCH_MIRROR_REFRESH_FAILED" -eq 0 ]; then    
+    pkexec cp -f "$TEMP_FILE" "$MIRRORLIST_FILE"
+fi
+
+# =========================
+# Check exit codes and exit
+# =========================
+
+if [ "$REBORN_MIRROR_REFRESH_FAILED" -ne 0 ]; then
+    echo "Refresh of RebornOS mirrors failed with exit code: $REBORN_MIRROR_REFRESH_FAILED"
+    echo "Please check the log at: file://$REBORN_MIRROR_REFRESH_LOG_FILE"
+    echo ""    
+    wait_and_exit 20 "$REBORN_MIRROR_REFRESH_FAILED"
+elif [ "$ARCH_MIRROR_REFRESH_FAILED" -ne 0 ]; then
+    echo "Refresh of Arch Linux mirrors failed with exit code: $REBORN_MIRROR_REFRESH_FAILED"
+    echo "Please check the log at: file://$ARCH_MIRROR_REFRESH_LOG_FILE"
+    echo ""    
+    wait_and_exit 20 "$ARCH_MIRROR_REFRESH_FAILED"
+else
+    echo "Refresh of both RebornOS and Arch Linux mirrors completed successfully!"
+    echo ""  
+    wait_and_exit 10 0
+fi
