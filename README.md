@@ -21,34 +21,21 @@ cd refresh-mirrors
 sh scripts/build_archlinux_package.sh --install
 ```
 
-Run `./scripts/build.sh` on a terminal. This will build the package from the `PKGBUILD`, create package files for *Arch Linux*, and install the application for you.
+## Test
 
-## Test using the given .pkg.tar.zst files
+### On a terminal
 
-> **Note**: If you have followed the section *"Build"*, you can skip to Step 4.
-
-1. Download the distributed `.tar.zst` file and `.tar.zst.sig` files.
-
-2. Install `rate-mirrors` by running the below command on a terminal
-
-```bash
-yay -S rate-mirrors
-```
-
-3. Install the package by running the below commands on a terminal (after removing the old `refresh-mirrors` application)
-
-```bash
-sudo pacman -R refresh-mirrors
-sudo pacman -U --noconfirm refresh-mirrors*.pkg.tar.zst
+``` bash
+sudo refresh-mirrors.sh
 ```
 
 ### Desktop Entry
 
-4. Run "Refresh RebornOS and ArchLinux Mirrors" from the launcher.
+1. Run "Refresh RebornOS and ArchLinux Mirrors" from the launcher.
 
 ### Systemd Services
 
-5. Run the below command on the terminal:
+2. Run the below command on the terminal:
 
 ```bash
 sudo systemctl restart refresh-mirrors
