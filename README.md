@@ -4,11 +4,26 @@ Just some convenient shortcuts for running the `rate-mirrors` tool (https://gith
 
 > **Note**: The below instructions are intended to work only on **RebornOS**
 
-## Build
+## Build and install from source on RebornOS
 
-Run `./build.sh` on a terminal. This will build the package from the `PKGBUILD`, create package files for *Arch Linux*, and install the application for you.
+1. Clone the repository:
+``` bash
+git clone https://gitlab.com/rebornos-team/applications/refresh-mirrors.git
+```
 
-## Test
+2. Change to the project base directory:
+``` bash
+cd refresh-mirrors
+```
+
+3. Build and install the package:
+``` bash
+sh scripts/build_archlinux_package.sh --install
+```
+
+Run `./scripts/build.sh` on a terminal. This will build the package from the `PKGBUILD`, create package files for *Arch Linux*, and install the application for you.
+
+## Test using the given .pkg.tar.zst files
 
 > **Note**: If you have followed the section *"Build"*, you can skip to Step 4.
 
