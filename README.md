@@ -25,17 +25,18 @@ sh scripts/build_archlinux_package.sh --install
 
 ### On a terminal
 
+1. Run the script: 
 ``` bash
 sudo refresh-mirrors.sh
 ```
 
 ### Desktop Entry
 
-1. Run "Refresh RebornOS and ArchLinux Mirrors" from the launcher.
+2. Run "Refresh RebornOS and ArchLinux Mirrors" from the launcher.
 
 ### Systemd Services
 
-2. Run the below command on the terminal:
+3. Run the below command on the terminal:
 
 ```bash
 sudo systemctl restart refresh-mirrors
