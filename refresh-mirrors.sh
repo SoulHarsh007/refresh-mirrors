@@ -28,7 +28,7 @@ echo ""
 
 echo "Ranking RebornOS Mirrors..."
 echo ""
-/usr/bin/rate-mirrors --concurrency=5 --per-mirror-timeout=3000 --allow-root --save="$TEMP_FILE" rebornos
+/usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout=3000 --allow-root --save="$TEMP_FILE" rebornos
 REBORN_MIRROR_REFRESH_FAILED="$?"
 echo ""
 echo ""
