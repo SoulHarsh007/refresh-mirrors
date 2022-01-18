@@ -36,5 +36,5 @@ sudo pacman -U --noconfirm refresh-mirrors*.pkg.tar.zst
 5. Run the below command on the terminal:
 
 ```bash
-sudo systemctl restart refresh-mirrors-rebornos
+sudo systemctl restart refresh-mirrors
 ```

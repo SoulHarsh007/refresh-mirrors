@@ -16,10 +16,10 @@ Comment=A shortcut to refresh RebornOS mirrors and ArchLinux mirrors for RebornO
 Path=/usr/bin/
 
 # The executable of the application, possibly with arguments.
-Exec=pkexec /usr/bin/refresh-mirrors-rebornos.sh
+Exec=pkexec /usr/bin/refresh-mirrors.sh
 
 # The name of the icon that will be used to display this entry
-Icon=/usr/share/icons/hicolor/scalable/apps/refresh-mirrors-rebornos.svg
+Icon=/usr/share/icons/hicolor/scalable/apps/refresh-mirrors.svg
 
 # Describes whether this application needs to be run in a terminal or not
 Terminal=true

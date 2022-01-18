@@ -1,8 +1,8 @@
-pkgname='refresh-mirrors-rebornos'
-pkgver=0.0.15
+pkgname='refresh-mirrors'
+pkgver=0.0.16
 pkgrel=1
 pkgdesc='Just some convenient shortcuts for running the `rate-mirrors` tool (https://github.com/westandskif/rate-mirrors) for RebornOS. This is *NOT* a fork, but just a wrapper for shortcuts that call the tool.'
-arch=('x86_64')
+arch=('any')
 url='https://gitlab.com/rebornos-team/applications/refresh-mirrors'
 license=('MPL2')
 groups=('rebornos')
@@ -36,10 +36,13 @@ package() {
     (
         cd "$PROJECT_DIRECTORY" && \
         {
-            install -D -m 755 refresh-mirrors-rebornos.sh "${pkgdir}/usr/bin/refresh-mirrors-rebornos.sh"
-            install -D -m 755 refresh-mirrors-rebornos.svg  "${pkgdir}/usr/share/icons/hicolor/scalable/apps/refresh-mirrors-rebornos.svg"
-            install -D -m 755 refresh-mirrors-rebornos.desktop "${pkgdir}/usr/share/applications/refresh-mirrors-rebornos.desktop"
-            install -D -m 755 refresh-mirrors-rebornos.service "${pkgdir}/usr/lib/systemd/system/refresh-mirrors-rebornos.service"
+            install -D -m 755 refresh-mirrors.sh "${pkgdir}/usr/bin/refresh-mirrors.sh"
+            ln -s "/usr/bin/refresh-mirrors.sh" "${pkgdir}/usr/bin/refresh-mirrors.sh"
+            chmod 755 "${pkgdir}/usr/bin/refresh-mirrors.sh"
+            
+            install -D -m 755 refresh-mirrors.svg  "${pkgdir}/usr/share/icons/hicolor/scalable/apps/refresh-mirrors.svg"
+            install -D -m 755 refresh-mirrors.desktop "${pkgdir}/usr/share/applications/refresh-mirrors.desktop"
+            install -D -m 755 refresh-mirrors.service "${pkgdir}/usr/lib/systemd/system/refresh-mirrors.service"
             install -D -m 755 org.rebornos.refresh_mirrors.policy "${pkgdir}/usr/share/polkit-1/actions/org.rebornos.refresh_mirrors.policy"
         }
     )
