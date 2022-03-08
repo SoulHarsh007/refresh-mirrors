@@ -16,7 +16,7 @@ rank_rebornos_mirrors() {
     TEMP_FILE="$1"
     TIMEOUT="$2"
 
-    /usr/bin/rate-mirrors --concurrency=16 --per-mirror-timeout="$TIMEOUT" --allow-root --save="$TEMP_FILE" rebornos
+    /usr/bin/rate-mirrors --concurrency=8 --per-mirror-timeout="$TIMEOUT" --allow-root --save="$TEMP_FILE" rebornos
     return "$?"
 }
 
@@ -89,7 +89,7 @@ rank_arch_mirrors() {
 TEMP_DIR="/tmp/pacman.d"
 DESTINATION_DIR="/etc/pacman.d"
 MIRRORLIST_FILENAME="mirrorlist"
-PER_MIRROR_TIMEOUT=15
+PER_MIRROR_TIMEOUT=1500
 FALLBACK_PER_MIRROR_TIMEOUT=5000
 MIN_MIRRORS=5
 
