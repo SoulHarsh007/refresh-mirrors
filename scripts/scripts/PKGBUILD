@@ -21,7 +21,7 @@ md5sums=()
 
 PROJECT_DIRECTORY="$(dirname -- "$(dirname -- "$(pwd)")")"
 # BUILD_DIRECTORY="$PROJECT_DIRECTORY"/build
-# RESOURCE_DIRECTORY="$PROJECT_DIRECTORY"/scripts/archlinux_packaging
+# RESOURCE_DIRECTORY="$PROJECT_DIRECTORY"/scripts/
 # NUMBER_OF_PROCESSORS="$(nproc)"
 
 build() {
