@@ -18,7 +18,7 @@ cd refresh-mirrors
 
 3. Build and install the package:
 ``` bash
-sh scripts/build_archlinux_package.sh --install
+sh scripts/build_package.sh --install
 ```
 
 ## Test
