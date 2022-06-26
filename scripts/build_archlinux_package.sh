@@ -6,7 +6,7 @@ PROJECT_DIRECTORY="$(dirname -- "$SCRIPT_DIRECTORY")"
 ( # Create subshell to nullify directory changes on exit
     # Run makepkg
     set -o xtrace
-    cd "$SCRIPT_DIRECTORY"/scripts && \
+    cd "$SCRIPT_DIRECTORY"/packaging && \
     makepkg \
         --force \
         --syncdeps \
