@@ -8,6 +8,11 @@ wait_and_exit() {
     exit "$EXIT_CODE"
 }
 
+if [ $(id -u) -ne 0 ]; then
+    >&2 echo "ERROR: Unauthorized. Please run with superuser privileges..."
+    wait_and_exit 10 1
+fi
+
 # ========================
 # Refresh RebornOS Mirrors
 # ========================
@@ -145,14 +150,14 @@ fi
 # =========================
 
 if [ "$REBORN_MIRROR_REFRESH_FAILED" -ne 0 ]; then
-    echo "Refresh of RebornOS mirrors failed with exit code: $REBORN_MIRROR_REFRESH_FAILED"
-    echo "Please check the log at: file://$REBORN_MIRROR_REFRESH_LOG_FILE"
-    echo ""    
+    >&2 echo "ERROR: Refresh of RebornOS mirrors failed with exit code: $REBORN_MIRROR_REFRESH_FAILED"
+    >&2 echo "Please check the log at: file://$REBORN_MIRROR_REFRESH_LOG_FILE"
+    >&2 echo ""    
     wait_and_exit 20 "$REBORN_MIRROR_REFRESH_FAILED"
 elif [ "$ARCH_MIRROR_REFRESH_FAILED" -ne 0 ]; then
-    echo "Refresh of Arch Linux mirrors failed with exit code: $ARCH_MIRROR_REFRESH_FAILED"
-    echo "Please check the log at: file://$ARCH_MIRROR_REFRESH_LOG_FILE"
-    echo ""    
+    >&2 echo "ERROR: Refresh of Arch Linux mirrors failed with exit code: $ARCH_MIRROR_REFRESH_FAILED"
+    >&2 echo "Please check the log at: file://$ARCH_MIRROR_REFRESH_LOG_FILE"
+    >&2 echo ""    
     wait_and_exit 20 "$ARCH_MIRROR_REFRESH_FAILED"
 else
     echo "Refresh of both RebornOS and Arch Linux mirrors completed successfully!"

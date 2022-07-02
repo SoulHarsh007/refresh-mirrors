@@ -7,17 +7,20 @@ Just some convenient shortcuts for running the `rate-mirrors` tool (https://gith
 ## Build and install from source on RebornOS
 
 1. Clone the repository:
-``` bash
+
+```sh
 git clone https://gitlab.com/rebornos-team/applications/refresh-mirrors.git
 ```
 
 2. Change to the project base directory:
-``` bash
+
+```sh
 cd refresh-mirrors
 ```
 
 3. Build and install the package:
-``` bash
+
+```sh
 sh scripts/build_package.sh --install
 ```
 
@@ -26,7 +29,8 @@ sh scripts/build_package.sh --install
 ### On a terminal
 
 1. Run the script: 
-``` bash
+
+```sh
 sudo refresh-mirrors.sh
 ```
 
@@ -38,6 +42,6 @@ sudo refresh-mirrors.sh
 
 3. Run the below command on the terminal:
 
-```bash
+```sh
 sudo systemctl restart refresh-mirrors
 ```

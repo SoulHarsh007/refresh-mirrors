@@ -10,7 +10,7 @@
  <vendor>RebornOS</vendor>
  <vendor_url>https://www.rebornos.org</vendor_url>
 
- <action id="org.rebornos.refresh_mirrors.pkexec.run">
+ <action id="org.rebornos.refresh_mirrors.run">
     <description>Refresh RebornOS and Arch Linux Mirrors</description>
     <message>Authentication is required to refresh mirrors</message>
     <icon_name>internet-search</icon_name>
