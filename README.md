@@ -9,7 +9,7 @@ Just some convenient shortcuts for running the `rate-mirrors` tool (https://gith
 1. Clone the repository:
 
 ```sh
-git clone https://gitlab.com/rebornos-team/applications/refresh-mirrors.git
+git clone https://github.com/RebornOS-Developers/refresh-mirrors.git
 ```
 
 2. Change to the project base directory:
