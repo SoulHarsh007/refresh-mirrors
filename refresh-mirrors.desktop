@@ -19,7 +19,7 @@ Path=/usr/bin/
 Exec=pkexec /usr/bin/refresh-mirrors.sh
 
 # The name of the icon that will be used to display this entry
-Icon=/usr/share/icons/hicolor/scalable/apps/refresh-mirrors.svg
+Icon=refresh-mirrors
 
 # Describes whether this application needs to be run in a terminal or not
 Terminal=true
